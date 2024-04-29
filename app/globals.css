@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --main-red: #D53343;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,16 +18,333 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: white;
+  color: #000000;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.users-count span:first-child, .cars-count span:first-child, .brands-count span:first-child{
+  color: var(--main-red);
+}
+
+.welcome{
+  width: 100%;
+  height: 100vh;
+  background-image: url('../public/BackgroundImg.jpg');
+  background-size: cover; /* La imagen se ajustará para cubrir todo el contenedor */
+  background-repeat: no-repeat;
+}
+
+.nav-bar{
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 1em;
+  z-index: 5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  height: 60px;
+  align-items: center;
+}
+
+.container-2{
+  display: none;
+}
+
+.label-check {
+  display: none;
+}
+
+.hamburger-label {
+  width: 60px;
+  height: 58px;
+  display: block;
+  cursor: pointer;
+}
+
+.hamburger-label div {
+  width: 60px;
+  height: 5px;
+  background-color: #000;
+  position: absolute;
+}
+
+.line1 {
+  transition: all .3s;
+}
+
+.line2 {
+  margin: 18px 0 0 0;
+  transition: 0.3s;
+}
+
+.line3 {
+  margin: 36px 0 0 0;
+  transition: 0.3s;
+}
+
+#label-check:checked + .hamburger-label .line1 {
+  transform: rotate(35deg) scaleX(.55) translate(39px, -4.5px);
+  border-radius: 50px 50px 50px 0;
+}
+
+#label-check:checked + .hamburger-label .line3 {
+  transform: rotate(-35deg) scaleX(.55) translate(39px, 4.5px);
+  border-radius: 0 50px 50px 50px;
+}
+
+#label-check:checked + .hamburger-label .line2 {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  width: 45px;
+}
+
+.res-nav, .options{
+  display: none;
+}
+@media screen and (max-width:576px) {
+  main{
+    min-height: 71vh;
+  }
+  body{
+    width: 100vw;
+    background-color: white;
+  }
+  h1{
+    background-color: transparent!important;
+  }
+  .welcome{
+    height: calc(100vh - 80px);
+  }
+  nav{
+    display: flex;
+    justify-content: space-around;
+    height: 80px !important;
+  }
+  .nav-bar{
+    width: 100vw;
+  }
+  .nores-nav{
+    display: none;
+  }
+
+  .container-2{
+    display: block;
+    margin-top: 1em;
+  }
+
+  .options-2{
+    display: block;
+    height: 80px;
+    width: 100vw;
+  }
+
+  .options{
+    position: absolute;
+    left: 0;
+    flex-direction: column;
+    background-color: rgba(220, 220, 220, 0.952);
+    height: calc(100vh - 80px);
+    width: 100vw;
+    position: absolute;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 5em;
+  }
+  .res-nav{
+    display: block;
+    height: 30px;
+    padding-top: 1em;
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  .users{
+    display: none;
+  }
+  .search-form.flex input{
+    width: 200px;
+  }
+
+  .search-form a{
+    width: 100px;
+  }
+
+  .brands{
+    display: none;
+  }
+
+  .sign-title{
+    margin-top: 2em !important;
+  }
+
+  .cars{
+    grid-template-columns: 1fr;
+  }
+
+  h2{
+    margin-top: 0!important;
+  }
+
+  .car{
+    flex-direction: column;
+  }
+
+  .car img{
+    width: auto;
+    height: 100%;
+  }
+
+  .nonav{
+    display: none;
+  }
+}
+
+h1{
+  text-shadow: 2px -3px 4px rgba(1, 1, 1, 1);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0000000d;
+}
+
+.img-searched-brands{
+  width: auto;
+}
+
+.img-searched-brand{
+  width: auto;
+  height: 150px;
+}
+
+/* Estilo base para la línea */
+.img-searched-brand {
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 11); /* Añade sombra */
+  width: 100%;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+
+/* Estilo para la animación al pasar el cursor */
+.img-searched-brand:hover {
+  transform: scale(1.05); 
+  transform-origin: center;
+}
+
+.brand-title, .sign-title, .search-title{
+  position: relative;
+  display: inline-block;
+}
+
+.brand-title::before, .sign-title::before, .search-title::before{
+  content: '';
+  position: absolute;
+  background-color: var(--main-red);
+  bottom: calc(-36%);
+  height: 4px;
+}
+
+.search-title::before{
+  width: 350px;
+}
+
+.brand-title::before{
+  width: 330px;
+
+}
+
+.sign-title::before{
+  width: 340px;
+}
+
+.container {
+  max-width: 350px;
+  background: #F8F9FD;
+  background-color: rgb(244, 247, 251);
+  border-radius: 20px;
+  padding: 10px 35px;
+  border: 5px solid rgb(255, 255, 255);
+  margin: 20px;
+}
+
+.form {
+  margin-top: 5px;
+}
+
+.form .input {
+  width: 100%;
+  background: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 15px;
+  box-shadow: #cfffea 0px 5px 10px -5px;
+  border-inline: 2px solid transparent;
+}
+
+.form .input::-moz-placeholder {
+  color: rgb(170, 170, 170);
+}
+
+.form .input::placeholder {
+  color: rgb(170, 170, 170);
+}
+
+.form .input:focus {
+  outline: none;
+  border-inline: 2px solid var(--main-red);
+}
+
+.form .forgot-password {
+  display: block;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.form .forgot-password a {
+  font-size: 11px;
+  color: #000000;
+  text-decoration: none;
+}
+
+.form .login-button {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  background: linear-gradient(45deg, var(--main-red) 0%,var(--main-red) 100%);
+  color: white;
+  padding-block: 10px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.form .login-button:hover {
+  transform: scale(1.03);
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+}
+
+.form .login-button:active {
+  transform: scale(0.95);
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+}
+
+.car-box{
+  transition: opacity 0.2s ease;
+  transition: transform 0.2s ease;
+}
+
+.car-box:hover{
+  opacity: 0.8;
+  transform: scale(1.005);
+  transform-origin: center;
 }
