@@ -1,7 +1,7 @@
 "use client"
 
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { fetchCarBysearch } from "../actions";
 
 export default function Car(){
@@ -27,6 +27,7 @@ export default function Car(){
     return (
         <>
         <main className="p-5">
+		<Suspense fallback={<div>Loading...</div>}>
             {/* Renderiza los datos si están disponibles */}
         {!cars ? (
             <svg className="animate-spin size-5 text-white block mx-auto mt-[100px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -65,6 +66,7 @@ export default function Car(){
               </div>
             </div>
         )}
+	</Suspense>
         </main>
         </>
     );
