@@ -7,9 +7,6 @@ const nextConfig = {
     path: '',
   },
   assetPrefix: './',
-  experimental: {
-    missingSuspenseWithCSRBailout: false,
-  },
 };
 
 export default nextConfig;
