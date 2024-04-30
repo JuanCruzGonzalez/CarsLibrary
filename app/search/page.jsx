@@ -1,7 +1,7 @@
 "use client"
 
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { fetchCarsFromDataBase } from "../actions";
 
 export default function Car(){
@@ -47,6 +47,7 @@ export default function Car(){
     return (
         <>
         <main className="p-5">
+            <Suspense fallback={<div>Loading...</div>}>
             <h2 className="text-5xl font-bold mt-10 mb-10 w-full text-center">Search</h2>
             <h3 className="text-2xl mb-10">Car: {search}</h3>
             <div className="search-form flex">
@@ -102,6 +103,7 @@ export default function Car(){
               </div>
             </div>
         )}
+        </Suspense>
         </main>
         </>
     );
