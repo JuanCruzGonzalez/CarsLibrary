@@ -83,15 +83,16 @@ export default function Home() {
         </div>
       </sections>
       <sections className="Sign flex flex-col text-center items-center">
-        <h2 className="sign-title text-3xl text-center mt-40 font-bold">Sign in for New Arrivals</h2>
-        <div class="container">
-          <form action="" class="form">
-              <input required="" class="input" type="text" name="name" id="name" placeholder="Name"/>
-              <input required="" class="input" type="text" name="nickname" id="nickname" placeholder="Nickname"/>
-              <input required="" class="input" type="email" name="email" id="email" placeholder="E-mail"/>
-              <input required="" class="input" type="password" name="password" id="password" placeholder="Password"/>
-              <span class="forgot-password"><a href="#">Forgot Password ?</a></span>
-              <input class="login-button" type="submit" value="Sign In"/>
+        <h2 className="sign-title text-3xl text-center mt-40 font-bold">Sign up for New Arrivals</h2>
+        <div className="rounded-xl mt-10 bg-slate-100">
+          <form action="" className="form border rounded-xl bg-slate-100 p-5">
+            <div className="flex gap-4">
+              <input required="" className="input" type="text" name="name" id="name" placeholder="Name"/>
+              <input required="" className="input" type="text" name="nickname" id="nickname" placeholder="Nickname"/>
+            </div>
+            <input required="" className="input" type="email" name="email" id="email" placeholder="E-mail"/>
+            <input required="" className="input" type="password" name="password" id="password" placeholder="Password"/>
+            <input className="login-button" type="submit" value="Sign up"/>
           </form>
         </div>        
       </sections>

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import { PageTitle } from "../pageTitle";
 import "../globals.css";
 import { fetchCarsFromDataBase } from "../actions";
 import { CarCard } from "../carCard";
@@ -22,7 +22,7 @@ export default function Cars() {
 
 return (
     <main className="p-10">
-        <div className="w-full text-center text-5xl font-bold mb-10"><h2>Cars</h2></div>
+        <PageTitle>Cars</PageTitle>
         <h2 className="text-xl font-bold mb-5 ml-1">Search car</h2>
         <div className="search-form flex">
           <input 

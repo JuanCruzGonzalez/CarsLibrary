@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
           <Link className="nores-nav" href={`/cars`}>Cars</Link>
           <Link className="nores-nav" href={`/about`}>About</Link>
           <Link className="nores-nav" href="/contact">Contact us</Link>
-          <Link className="nores-nav bg-zinc-800 text-white pt-2 pb-2 pr-6 pl-6 rounded" href="/">Log In</Link>
+          <Link className="nores-nav bg-zinc-800 text-white pt-2 pb-2 pr-6 pl-6 rounded" href="/login">Log In</Link>
           <div className="container-2">
             <input 
               className="label-check" 
@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
               <Link className="res-nav" href={`/cars`}>Cars</Link>
               <Link className="res-nav" href={`/about`}>About</Link>
               <Link className="res-nav" href="/contact">Contact us</Link>
-              <Link className="res-nav" href="/">Log In</Link>
+              <Link className="res-nav" href="/login">Log In</Link>
             </div>
           </div>
         </nav>
