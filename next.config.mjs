@@ -8,5 +8,10 @@ const nextConfig = {
   },
   assetPrefix: './',
 };
+module.exports = {
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
+}
 
 export default nextConfig;
