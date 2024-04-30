@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import "../globals.css";
 import { fetchCarsFromDataBase } from "../actions";
+import { CarCard } from "../carCard";
 
 export default function Cars() {
   const [cars, setCars] = useState([]);
@@ -53,24 +54,11 @@ return (
             <div className="flex gap-6">
               <div className="w-full">
                 <div className="cars  grid grid-cols-4 gap-5">
-                  {
-                    cars.map((item, index) => (
-                        <>
-                        <div className="flex">
-                            <a key={`${item.id}-${index}`} href={`/car?slug=${item.id}`} className="flex items-center border-b pb-1 rounded border-gray-400 w-full flex-col">
-                                <div className="car-img h-full w-[auto] rounded-t">
-                                  <img className="object-cover h-full max-w-full" src={item.img_url} alt="" />
-                                </div>
-                                <div className="flex flex-col p-4 mr-auto">
-                                    {item.brand.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')+ " " + item.name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') + " " + item.year}
-                                    <span className="text-gray-600 text-[14px]">Estrellas - N° de reviews</span>
-                                </div>
-                            </a>
-                        </div>
-                        </>
-                      ))
-                                                             
-                  }
+                {
+                  cars.map((item, index) => (
+                    <CarCard key={`${item.id}-${index}`} car={item} />
+                  ))                              
+                }
 
                 </div>
               </div>

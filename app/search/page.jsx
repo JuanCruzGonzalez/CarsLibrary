@@ -1,15 +1,17 @@
 "use client"
 
-import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { fetchCarsFromDataBase } from "../actions";
+import { CarCard } from "../carCard";
+import { GetSlug } from "../GetSlug";
+import { useSearchParams } from "next/navigation";
 
 export default function Car(){
     const [cars, setCars] = useState([])
     const [searchResults, setSearchResults] = useState([])
+    const [carToSearch, setCarToSearch] = useState();
     const searchParams = useSearchParams();
     const search = searchParams.get('car');
-    const [carToSearch, setCarToSearch] = useState();
 
     useEffect(() => {
         const fetchCar = async () => {
@@ -48,7 +50,9 @@ export default function Car(){
         <>
         <main className="p-5">
             <h2 className="text-5xl font-bold mt-10 mb-10 w-full text-center">Search</h2>
-            <h3 className="text-2xl mb-10">Car: {search}</h3>
+            <Suspense>
+              <GetSlug title="Car"/>
+            </Suspense>
             <div className="search-form flex">
               <input 
                 onChange={(e) => {setCarToSearch(e.target.value)}}
@@ -79,25 +83,12 @@ export default function Car(){
             </svg> :
             <div className="flex gap-6">
               <div className="w-full">
-                <div className="cars grid grid-cols-3 gap-1">
+                <div className="cars grid grid-cols-4 gap-1">
                 {
-                    searchResults.map((item, index) => (
-                        <>
-                        <div className="flex">
-                            <a key={`${item.id}-${index}`} href={`/car?slug=${item.id}`} className="flex items-center border-b pb-1 rounded border-gray-400 w-full flex-col">
-                                <div className="car-img h-full w-[auto] rounded-t">
-                                  <img className="object-cover h-full max-w-full" src={item.img_url} alt="" />
-                                </div>
-                                <div className="flex flex-col p-4 mr-auto">
-                                    {item.brand.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')+ " " + item.name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') + " " + item.year}
-                                    <span className="text-gray-600 text-[14px]">Estrellas - N° de reviews</span>
-                                </div>
-                            </a>
-                        </div>
-                        </>
-                      ))
-                                                             
-                  }
+                  searchResults.map((item, index) => (
+                    <CarCard key={`${item.id}-${index}`} car={item} />
+                  ))                              
+                }
                 </div>
               </div>
             </div>

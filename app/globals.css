@@ -34,9 +34,9 @@ body {
 
 .welcome{
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 60px);
   background-image: url('../public/BackgroundImg.jpg');
-  background-size: cover; /* La imagen se ajustará para cubrir todo el contenedor */
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
@@ -104,15 +104,15 @@ body {
   width: 45px;
 }
 
+main{
+  min-height: 71vh;
+}
+
 .res-nav, .options{
   display: none;
 }
 @media screen and (max-width:576px) {
-  main{
-    min-height: 71vh;
-  }
   body{
-    width: 100vw;
     background-color: white;
   }
   h1{
@@ -126,9 +126,7 @@ body {
     justify-content: space-around;
     height: 80px !important;
   }
-  .nav-bar{
-    width: 100vw;
-  }
+
   .nores-nav{
     display: none;
   }
@@ -208,7 +206,7 @@ body {
 h1{
   text-shadow: 2px -3px 4px rgba(1, 1, 1, 1);
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 60px);
   display: flex;
   justify-content: center;
   align-items: center;

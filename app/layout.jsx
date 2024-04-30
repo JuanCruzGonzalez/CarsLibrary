@@ -15,9 +15,9 @@ export default function RootLayout({ children }) {
         <nav className="fixed nav-bar">
           <Link href="/" className="font-bold text-xl">Cars Library</Link>
           <Link className="nores-nav" href="/">Home</Link>
-          <Link className="nores-nav" href="/">Brands</Link>
           <Link className="nores-nav" href={`/cars`}>Cars</Link>
           <Link className="nores-nav" href={`/about`}>About</Link>
+          <Link className="nores-nav" href="/contact">Contact us</Link>
           <Link className="nores-nav bg-zinc-800 text-white pt-2 pb-2 pr-6 pl-6 rounded" href="/">Log In</Link>
           <div className="container-2">
             <input 
@@ -34,9 +34,9 @@ export default function RootLayout({ children }) {
             </label>
             <div className="options" style={{ display: mostrarOptions ? 'flex' : 'none' }}>
               <Link className="res-nav" href="/">Home</Link>
-              <Link className="res-nav" href="/">Brands</Link>
               <Link className="res-nav" href={`/cars`}>Cars</Link>
               <Link className="res-nav" href={`/about`}>About</Link>
+              <Link className="res-nav" href="/contact">Contact us</Link>
               <Link className="res-nav" href="/">Log In</Link>
             </div>
           </div>
