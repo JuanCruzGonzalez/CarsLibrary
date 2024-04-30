@@ -47,9 +47,11 @@ export default function Car(){
     return (
         <>
         <main className="p-5">
-            <Suspense fallback={<div>Loading...</div>}>
             <h2 className="text-5xl font-bold mt-10 mb-10 w-full text-center">Search</h2>
+            <Suspense fallback={<div>Loading...</div>}>
             <h3 className="text-2xl mb-10">Car: {search}</h3>
+        </Suspense>
+                
             <div className="search-form flex">
               <input 
                 onChange={(e) => {setCarToSearch(e.target.value)}}
@@ -103,7 +105,6 @@ export default function Car(){
               </div>
             </div>
         )}
-        </Suspense>
         </main>
         </>
     );
