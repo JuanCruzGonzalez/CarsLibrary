@@ -16,6 +16,10 @@
   }
 }
 
+.serach-cars{
+  height: 40vh;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: white;
@@ -112,6 +116,10 @@ main{
   display: none;
 }
 @media screen and (max-width:576px) {
+  .form{
+    width: 80vw;
+  }
+
   body{
     background-color: white;
   }
@@ -206,7 +214,7 @@ main{
 h1{
   text-shadow: 2px -3px 4px rgba(1, 1, 1, 1);
   width: 100%;
-  height: calc(100vh - 60px);
+  height: calc(50vh - 60px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -254,7 +262,7 @@ h1{
 }
 
 .brand-title::before{
-  width: 330px;
+  width: 275px;
 
 }
 

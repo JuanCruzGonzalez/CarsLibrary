@@ -1,5 +1,6 @@
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+import { useSearchParams } from "next/navigation";
 
 export async function fetchCarsFromDataBase(){
     try{
@@ -23,6 +24,12 @@ export async function fetchCarsFromDataBase(){
         return [];
     }
 
+}
+
+export function getSlug(option){
+    const searchParams = useSearchParams();
+    const search = searchParams.get(option);
+    return search
 }
 
 export async function fetchCarBysearch(car){
