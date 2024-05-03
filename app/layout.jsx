@@ -6,9 +6,13 @@ import "./globals.css";
 export default function RootLayout({ children }) {
     const [mostrarOptions, setMostrarOptions] = useState(false);
     const handleCheckboxChange = () => {
-      setMostrarOptions(!mostrarOptions);
+      setMostrarOptions(false);
     };
 
+
+    const handleButtonChange = () => {
+      setMostrarOptions(!mostrarOptions);
+    };
   return (
     <html lang="en">
       <body>
@@ -20,7 +24,7 @@ export default function RootLayout({ children }) {
           <Link className="nores-nav" href="/contact">Contact us</Link>
           <Link className="nores-nav bg-zinc-800 text-white pt-2 pb-2 pr-6 pl-6 rounded" href="/login">Log In</Link>
           <div className="container-2">
-            <div className={`center ${mostrarOptions ? 'active' : ''}`} onClick={handleCheckboxChange}>
+            <div className={`center ${mostrarOptions ? 'active' : ''}`} onClick={handleButtonChange}>
               <div></div>
             </div>
             <div className="options" style={{ display: mostrarOptions ? 'flex' : 'none' }}>

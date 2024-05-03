@@ -503,10 +503,6 @@ video {
 .bottom-0 {
   bottom: 0px;
 }
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -532,17 +528,14 @@ video {
 .ml-1 {
   margin-left: 0.25rem;
 }
+.ml-2 {
+  margin-left: 0.5rem;
+}
 .ml-auto {
   margin-left: auto;
 }
 .mr-auto {
   margin-right: auto;
-}
-.ms-2 {
-  margin-inline-start: 0.5rem;
-}
-.mt-1 {
-  margin-top: 0.25rem;
 }
 .mt-10 {
   margin-top: 2.5rem;
@@ -602,9 +595,6 @@ video {
 .w-1\/2 {
   width: 50%;
 }
-.w-1\/4 {
-  width: 25%;
-}
 .w-10 {
   width: 2.5rem;
 }
@@ -619,6 +609,9 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.min-w-\[350px\] {
+  min-width: 350px;
 }
 .max-w-\[calc\(100\%-72px\)\] {
   max-width: calc(100% - 72px);
@@ -647,8 +640,11 @@ video {
 .grid-cols-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
-.flex-row {
-  flex-direction: row;
+.grid-cols-7 {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+.grid-cols-7\.1 {
+  grid-template-columns: 1.3fr 0.7fr;
 }
 .flex-col {
   flex-direction: column;
@@ -658,9 +654,6 @@ video {
 }
 .justify-center {
   justify-content: center;
-}
-.justify-between {
-  justify-content: space-between;
 }
 .justify-around {
   justify-content: space-around;
@@ -987,13 +980,20 @@ main{
 }
 
 @media screen and (max-width:576px) {
+  .comment {
+    display: none;
+  }
+  .contact-inputs{
+    flex-direction: column;
+  }
   .page-title{
+    margin-top: 0;
     font-size: 1.875rem;
     line-height: 2.25rem;
   }
 
   .log-in{
-    height: 70vh;
+    height: 75vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1001,6 +1001,7 @@ main{
   }
 
   .login-div{
+    box-shadow: none;
     width: 90vw;
   }
 
@@ -1039,7 +1040,7 @@ main{
   }
 
   .search-form.flex{
-    margin-bottom: 1em;
+    margin-bottom: 4em;
   }
 
   .options-2{
@@ -1058,7 +1059,7 @@ main{
     width: 100vw;
     position: absolute;
     padding: 1em;
-    gap: 1em;
+    gap: 2em;
     box-shadow: 0px 4px 3px 0px #b7b7b7;
   }
   .res-nav{
@@ -1075,12 +1076,9 @@ main{
     width: 200px;
   }
 
-  .search-form a{
-    width: 100px;
-  }
-
   .sign-title{
     margin-top: 2em !important;
+    margin-bottom: 0;
   }
 
   .cars{
@@ -1102,6 +1100,11 @@ main{
 
   .nonav{
     display: none;
+  }
+
+  .sing-up div{
+    flex-direction: column;
+    gap: 0;
   }
 }
 

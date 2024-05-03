@@ -19,18 +19,18 @@ export default function Home() {
         <AppStatics num="5k" text="Satisfy user with our car's information"/>
         <AppStatics num="+30" text="Car's brands"/>
       </section>
-      <sections className="brands flex flex-col p-10">
+      <section className="brands flex flex-col p-10">
         <h2 className="brand-title text-3xl text-center mt-20 mb-20 font-bold">
           New Arrivals
         </h2>
         <SearchedCars/>
-      </sections>
-      <sections className="Sign flex flex-col text-center items-center">
+      </section>
+      <section className="Sign flex flex-col text-center items-center">
         <h2 className="sign-title text-3xl text-center mt-40 mb-10 font-bold">
           Sign up for New Arrivals
         </h2>
         <SingupForm />        
-      </sections>
+      </section>
     </main>
   );
 }

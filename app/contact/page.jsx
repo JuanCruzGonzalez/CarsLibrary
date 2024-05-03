@@ -2,7 +2,7 @@ import { PageTitle } from "../pageTitle";
 
 export default function Contact(){
     return(
-        <main className="text-center">
+        <main className="text-center p-4">
             <PageTitle>Contact us</PageTitle>
             <div className="w-full flex justify-center">
                 <form action="" className="form rounded-xl p-5">

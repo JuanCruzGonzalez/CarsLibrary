@@ -14,6 +14,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         '1.7': '0.7fr 1.3fr',
+        '7.1': '1.3fr 0.7fr',
       }
     },
   },

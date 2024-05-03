@@ -129,13 +129,20 @@ main{
 }
 
 @media screen and (max-width:576px) {
+  .comment {
+    display: none;
+  }
+  .contact-inputs{
+    flex-direction: column;
+  }
   .page-title{
+    margin-top: 0;
     font-size: 1.875rem;
     line-height: 2.25rem;
   }
 
   .log-in{
-    height: 70vh;
+    height: 75vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -143,6 +150,7 @@ main{
   }
 
   .login-div{
+    box-shadow: none;
     width: 90vw;
   }
 
@@ -181,7 +189,7 @@ main{
   }
 
   .search-form.flex{
-    margin-bottom: 1em;
+    margin-bottom: 4em;
   }
 
   .options-2{
@@ -200,7 +208,7 @@ main{
     width: 100vw;
     position: absolute;
     padding: 1em;
-    gap: 1em;
+    gap: 2em;
     box-shadow: 0px 4px 3px 0px #b7b7b7;
   }
   .res-nav{
@@ -217,12 +225,9 @@ main{
     width: 200px;
   }
 
-  .search-form a{
-    width: 100px;
-  }
-
   .sign-title{
     margin-top: 2em !important;
+    margin-bottom: 0;
   }
 
   .cars{
@@ -244,6 +249,11 @@ main{
 
   .nonav{
     display: none;
+  }
+
+  .sing-up div{
+    flex-direction: column;
+    gap: 0;
   }
 }
 
