@@ -1,12 +1,8 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/about/page": "app/about/page.js",
-  "/car/page": "app/car/page.js",
-  "/cars/page": "app/cars/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/login/page": "app/login/page.js",
   "/page": "app/page.js",
-  "/search/page": "app/search/page.js",
-  "/singup/page": "app/singup/page.js"
+  "/cars/page": "app/cars/page.js",
+  "/about/page": "app/about/page.js",
+  "/login/page": "app/login/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
 }

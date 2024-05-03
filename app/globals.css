@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  box-sizing: border-box;
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -38,8 +41,8 @@ body {
 
 .welcome{
   width: 100%;
-  height: calc(100vh - 60px);
   background-image: url('../public/BackgroundImg.jpg');
+  height: calc(100vh - 60px);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -59,62 +62,58 @@ body {
 .container-2{
   display: none;
 }
-
-.label-check {
-  display: none;
+.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25px;
+  margin-top: 3.5em;
+  cursor: pointer; 
 }
 
-.hamburger-label {
-  width: 60px;
-  height: 58px;
+.center:before,
+.center:after,
+.center div {
+  background: #000;
+  content: "";
   display: block;
-  cursor: pointer;
+  height: 2px;
+  border-radius: 3px;
+  margin: 13px 0;
+  transition: 0.5s;
 }
 
-.hamburger-label div {
-  width: 60px;
-  height: 5px;
-  background-color: #000;
-  position: absolute;
+.center:before {
+  transform: translateY(9px) rotate(0deg);
 }
 
-.line1 {
-  transition: all .3s;
+.center:after {
+  transform: translateY(-9px) rotate(0deg);
 }
 
-.line2 {
-  margin: 18px 0 0 0;
-  transition: 0.3s;
+.center div {
+  transform: scale(1);
 }
 
-.line3 {
-  margin: 36px 0 0 0;
-  transition: 0.3s;
+.center.active:before {
+  transform: translateY(15px) rotate(45deg);
 }
 
-#label-check:checked + .hamburger-label .line1 {
-  transform: rotate(35deg) scaleX(.55) translate(39px, -4.5px);
-  border-radius: 50px 50px 50px 0;
+.center.active:after {
+  transform: translateY(-15px) rotate(-45deg);
 }
 
-#label-check:checked + .hamburger-label .line3 {
-  transform: rotate(-35deg) scaleX(.55) translate(39px, 4.5px);
-  border-radius: 0 50px 50px 50px;
+.center.active div {
+  transform: scale(0);
 }
-
-#label-check:checked + .hamburger-label .line2 {
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
-  width: 45px;
-}
-
 main{
   min-height: 71vh;
 }
 
-.res-nav, .options{
-  display: none;
+.brands .cars{
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+
 @media screen and (max-width:576px) {
   .form{
     width: 80vw;
@@ -126,13 +125,18 @@ main{
   h1{
     background-color: transparent!important;
   }
+
+  .title-nav{
+    font-size: 1rem;
+  }
+
   .welcome{
-    height: calc(100vh - 80px);
+    height: calc(50vh - 80px);
   }
   nav{
     display: flex;
     justify-content: space-around;
-    height: 80px !important;
+    height: 50px !important;
   }
 
   .nores-nav{
@@ -140,34 +144,37 @@ main{
   }
 
   .container-2{
-    display: block;
-    margin-top: 1em;
+    display: flex;
+  }
+
+  .search-form.flex{
+    margin-bottom: 1em;
   }
 
   .options-2{
     display: block;
-    height: 80px;
+    height: 50px;
     width: 100vw;
   }
 
   .options{
-    position: absolute;
+    top: 50px;
     left: 0;
     flex-direction: column;
-    background-color: rgba(220, 220, 220, 0.952);
-    height: calc(100vh - 80px);
+    background-color:#fff;
+    color: #000;
+    height: fit-content;
     width: 100vw;
     position: absolute;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 5em;
+    padding: 1em;
+    gap: 1em;
+    box-shadow: 0px 4px 3px 0px #b7b7b7;
   }
   .res-nav{
-    display: block;
-    height: 30px;
-    padding-top: 1em;
-    font-weight: bold;
-    font-size: 30px;
+    margin: 0 2em;
+    border-bottom: 1px solid #c9c9c9;
+    background-color: #fff;
+    align-items: self-start;
   }
 
   .users{
@@ -179,10 +186,6 @@ main{
 
   .search-form a{
     width: 100px;
-  }
-
-  .brands{
-    display: none;
   }
 
   .sign-title{
@@ -262,7 +265,7 @@ h1{
 }
 
 .brand-title::before{
-  width: 275px;
+  width: 180px;
 
 }
 

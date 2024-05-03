@@ -21,7 +21,7 @@ export default function Home() {
       </section>
       <sections className="brands flex flex-col p-10">
         <h2 className="brand-title text-3xl text-center mt-20 mb-20 font-bold">
-          More searched cars
+          New Arrivals
         </h2>
         <SearchedCars/>
       </sections>

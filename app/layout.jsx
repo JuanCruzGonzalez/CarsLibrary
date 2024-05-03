@@ -1,43 +1,34 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import "./globals.css"; 
 
 export default function RootLayout({ children }) {
-  const [mostrarOptions, setMostrarOptions] = useState(false);
-  const handleCheckboxChange = () => {
-    setMostrarOptions(!mostrarOptions);
-  };
+    const [mostrarOptions, setMostrarOptions] = useState(false);
+    const handleCheckboxChange = () => {
+      setMostrarOptions(!mostrarOptions);
+    };
 
   return (
     <html lang="en">
       <body>
         <nav className="fixed nav-bar">
-          <Link href="/" className="font-bold text-xl">Cars Library</Link>
+          <Link href="/" className="title-nav font-bold text-xl" onClick={handleCheckboxChange}>Cars Library</Link>
           <Link className="nores-nav" href="/">Home</Link>
           <Link className="nores-nav" href={`/cars`}>Cars</Link>
           <Link className="nores-nav" href={`/about`}>About</Link>
           <Link className="nores-nav" href="/contact">Contact us</Link>
           <Link className="nores-nav bg-zinc-800 text-white pt-2 pb-2 pr-6 pl-6 rounded" href="/login">Log In</Link>
           <div className="container-2">
-            <input 
-              className="label-check" 
-              id="label-check" 
-              type="checkbox"
-              onChange={handleCheckboxChange} 
-              checked={mostrarOptions} 
-            />
-            <label htmlFor="label-check" className="hamburger-label">
-              <div className="line1"></div>
-              <div className="line2"></div>
-              <div className="line3"></div>
-            </label>
+            <div className={`center ${mostrarOptions ? 'active' : ''}`} onClick={handleCheckboxChange}>
+              <div></div>
+            </div>
             <div className="options" style={{ display: mostrarOptions ? 'flex' : 'none' }}>
-              <Link className="res-nav" href="/">Home</Link>
-              <Link className="res-nav" href={`/cars`}>Cars</Link>
-              <Link className="res-nav" href={`/about`}>About</Link>
-              <Link className="res-nav" href="/contact">Contact us</Link>
-              <Link className="res-nav" href="/login">Log In</Link>
+              <Link className="res-nav" href="/" onClick={handleCheckboxChange}>Home</Link>
+              <Link className="res-nav" href={`/cars`} onClick={handleCheckboxChange}>Cars</Link>
+              <Link className="res-nav" href={`/about`} onClick={handleCheckboxChange}>About</Link>
+              <Link className="res-nav" href="/contact" onClick={handleCheckboxChange}>Contact us</Link>
+              <Link className="res-nav" href="/login" onClick={handleCheckboxChange}>Log In</Link>
             </div>
           </div>
         </nav>
