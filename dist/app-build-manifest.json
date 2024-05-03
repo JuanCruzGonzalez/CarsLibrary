@@ -12,11 +12,20 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/cars/page": [
+    "/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/cars/page.css",
-      "static/chunks/app/cars/page.js"
+      "static/chunks/app/login/page.js"
+    ],
+    "/singup/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/singup/page.js"
+    ],
+    "/contact/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/contact/page.js"
     ],
     "/about/page": [
       "static/chunks/webpack.js",
@@ -24,15 +33,11 @@
       "static/css/app/about/page.css",
       "static/chunks/app/about/page.js"
     ],
-    "/login/page": [
+    "/cars/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/login/page.js"
-    ],
-    "/contact/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/contact/page.js"
+      "static/css/app/cars/page.css",
+      "static/chunks/app/cars/page.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",

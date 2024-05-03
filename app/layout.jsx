@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
         <div className="nonav w-100 h-[60px]"></div>
         
         {children}
-        <footer className="bottom-0 bg-gray-500 h-40 mt-10 p-5 flex flex-col justify-center items-center gap-2">
+        <footer className="bottom-0 bg-gray-500 h-40 p-5 flex flex-col justify-center items-center gap-2">
           <h4 className="w-100 text-white font-bold text-xl">Cars Library</h4>
           <div className="social-media flex gap-3">
             <a href="https://www.google.com">

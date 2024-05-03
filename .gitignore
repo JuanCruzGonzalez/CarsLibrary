@@ -12,6 +12,9 @@
 # next.js
 /out/
 
+#dist
+/dist
+
 # production
 /build
 

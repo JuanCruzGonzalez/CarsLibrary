@@ -1,5 +1,5 @@
 export function PageTitle({children}){
     return(
-        <div className="w-full text-center text-6xl font-bold mt-10 mb-10">{children}</div>
+        <div className="page-title w-full text-center text-4xl font-bold mt-10 mb-5">{children}</div>
     )
 }

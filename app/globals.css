@@ -41,7 +41,7 @@ body {
 
 .welcome{
   width: 100%;
-  background-image: url('../public/BackgroundImg.jpg');
+  background-image: url('../public/pexels-pixabay-248747.jpg');
   height: calc(100vh - 60px);
   background-size: cover;
   background-repeat: no-repeat;
@@ -114,9 +114,42 @@ main{
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
+.login-div{
+  box-shadow: -2px -3px 14px 0px gray;
+}
+
+.card-body{
+  box-shadow: 1px 2px 9px 2px gray;
+    border-radius: 9px;
+}
+
+.comment{
+  background-image: url('../public/pexels-sarmad-mughal-94606-305070.jpg');
+  background-size: cover;
+}
+
 @media screen and (max-width:576px) {
+  .page-title{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .log-in{
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-div{
+    width: 90vw;
+  }
+
   .form{
-    width: 80vw;
+    width: 95vw;
+    background-color: #fff;
+    border: none;
   }
 
   body{
@@ -287,12 +320,10 @@ h1{
 .form .input {
   width: 100%;
   background: white;
-  border: none;
+  border: 1px solid #c9c9c9;
   padding: 10px 20px;
   border-radius: 10px;
   margin-top: 15px;
-  box-shadow: #cfffea 0px 5px 10px -5px;
-  border-inline: 2px solid transparent;
 }
 
 .form .input::-moz-placeholder {

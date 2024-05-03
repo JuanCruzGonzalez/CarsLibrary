@@ -5,7 +5,7 @@ export default function Contact(){
         <main className="text-center">
             <PageTitle>Contact us</PageTitle>
             <div className="w-full flex justify-center">
-                <form action="" className="form border rounded-xl bg-slate-100 p-5">
+                <form action="" className="form rounded-xl p-5">
                     <div className="contact-inputs flex gap-3">    
                         <input required="" className="input" type="text" name="name" id="name" placeholder="Name"/>
                         <input required="" className="input" type="email" name="email" id="email" placeholder="E-mail"/>
