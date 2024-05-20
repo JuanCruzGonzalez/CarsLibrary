@@ -1,6 +1,6 @@
 "use client"
 import "../globals.css";
-import { PageTitle } from "../pageTitle";
+import { PageTitle } from "../components/pageTitle";
 
 export default function About() {
   return (

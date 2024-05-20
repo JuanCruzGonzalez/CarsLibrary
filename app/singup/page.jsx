@@ -1,6 +1,6 @@
 "use client"
-import React, { useState } from 'react';
-import { SingupForm } from "../singUp";
+import React from 'react';
+import { SingupForm } from "../components/singUp";
 
 export default function Singup(){
     return(

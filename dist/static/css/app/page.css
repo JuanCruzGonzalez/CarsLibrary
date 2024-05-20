@@ -503,10 +503,6 @@ video {
 .bottom-0 {
   bottom: 0px;
 }
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
 .mb-0 {
   margin-bottom: 0px;
 }
@@ -534,6 +530,9 @@ video {
 .ml-auto {
   margin-left: auto;
 }
+.mr-3 {
+  margin-right: 0.75rem;
+}
 .mr-auto {
   margin-right: auto;
 }
@@ -546,27 +545,14 @@ video {
 .mt-4 {
   margin-top: 1rem;
 }
-.mt-40 {
-  margin-top: 10rem;
-}
 .mt-5 {
   margin-top: 1.25rem;
-}
-.mt-\[100px\] {
-  margin-top: 100px;
-}
-.block {
-  display: block;
 }
 .flex {
   display: flex;
 }
 .grid {
   display: grid;
-}
-.size-5 {
-  width: 1.25rem;
-  height: 1.25rem;
 }
 .h-40 {
   height: 10rem;
@@ -577,11 +563,11 @@ video {
 .h-\[60px\] {
   height: 60px;
 }
-.h-\[77vh\] {
-  height: 77vh;
-}
 .h-\[80vh\] {
   height: 80vh;
+}
+.h-fit {
+  height: fit-content;
 }
 .h-full {
   height: 100%;
@@ -591,6 +577,9 @@ video {
 }
 .h-px {
   height: 1px;
+}
+.min-h-\[94vh\] {
+  min-height: 94vh;
 }
 .w-1\/2 {
   width: 50%;
@@ -607,6 +596,9 @@ video {
 .w-\[auto\] {
   width: auto;
 }
+.w-fit {
+  width: fit-content;
+}
 .w-full {
   width: 100%;
 }
@@ -618,15 +610,6 @@ video {
 }
 .max-w-full {
   max-width: 100%;
-}
-@keyframes spin {
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-.animate-spin {
-  animation: spin 1s linear infinite;
 }
 .resize-none {
   resize: none;
@@ -654,6 +637,9 @@ video {
 }
 .justify-center {
   justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
 }
 .justify-around {
   justify-content: space-around;
@@ -704,12 +690,23 @@ video {
 .border {
   border-width: 1px;
 }
+.border-2 {
+  border-width: 2px;
+}
 .border-b {
   border-bottom-width: 1px;
+}
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 .border-gray-400 {
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
+}
+.border-zinc-800 {
+  --tw-border-opacity: 1;
+  border-color: rgb(39 39 42 / var(--tw-border-opacity));
 }
 .bg-black {
   --tw-bg-opacity: 1;
@@ -749,6 +746,9 @@ video {
 }
 .p-5 {
   padding: 1.25rem;
+}
+.p-6 {
+  padding: 1.5rem;
 }
 .px-10 {
   padding-left: 2.5rem;
@@ -844,12 +844,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-.opacity-100 {
-  opacity: 1;
-}
-.opacity-50 {
-  opacity: 0.5;
 }
 .outline-none {
   outline: 2px solid transparent;
@@ -979,6 +973,11 @@ main{
   background-size: cover;
 }
 
+.contact-form{
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 1px 0px 7px 0px gray;
+}
+
 @media screen and (max-width:576px) {
   .comment {
     display: none;
@@ -1023,7 +1022,7 @@ main{
   }
 
   .welcome{
-    height: calc(50vh - 80px);
+    height: calc(100vh - 60px);
   }
   nav{
     display: flex;
@@ -1108,6 +1107,17 @@ main{
   }
 }
 
+.sign-up-home .comment{
+  display: none;
+}
+
+.sign-up-home .singUp{
+  grid-template-columns: 1fr;
+}
+
+.sign-up-home .singUp .page-title{
+  display: none;
+}
 h1{
   text-shadow: 2px -3px 4px rgba(1, 1, 1, 1);
   width: 100%;
@@ -1247,9 +1257,62 @@ h1{
   transform-origin: center;
 }
 
+
+.loader-div{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3em;
+}
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 3px dotted #000;
+  border-style: solid solid dotted dotted;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 2s linear infinite;
+}
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px dotted #ff3d00;
+  border-style: solid solid dotted;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  animation: rotationBack 1s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
 @media (min-width: 640px) {
 
   .sm\:text-\[18px\] {
     font-size: 18px;
   }
 }
+

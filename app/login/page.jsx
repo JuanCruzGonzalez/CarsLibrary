@@ -1,6 +1,6 @@
 "use client"
-import { SingupForm } from "../singUp";
-import { PageTitle } from "../pageTitle";
+import { SingupForm } from "../components/singUp";
+import { PageTitle } from "../components/pageTitle";
 import React, { useState } from 'react';
 import Link from 'next/link';
 
@@ -14,7 +14,7 @@ export default function LogIn(){
     return(
         <>
             <main>
-                <section className="log-in justify-center grid grid-cols-1.7 h-[77vh]">
+                <section className="log-in justify-center grid grid-cols-1.7 min-h-[94vh]">
                     <div className={`login-div ${animated ? 'animation' : ''} w-full flex justify-center items-center flex-col`}>
                         <PageTitle>Log in</PageTitle>
                         <form action="" className="form rounded-xl p-5 w-1/2 min-w-[350px]">

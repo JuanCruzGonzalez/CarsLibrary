@@ -9,10 +9,10 @@ export default function RootLayout({ children }) {
       setMostrarOptions(false);
     };
 
-
     const handleButtonChange = () => {
       setMostrarOptions(!mostrarOptions);
     };
+
   return (
     <html lang="en">
       <body>
@@ -22,7 +22,10 @@ export default function RootLayout({ children }) {
           <Link className="nores-nav" href={`/cars`}>Cars</Link>
           <Link className="nores-nav" href={`/about`}>About</Link>
           <Link className="nores-nav" href="/contact">Contact us</Link>
-          <Link className="nores-nav bg-zinc-800 text-white pt-2 pb-2 pr-6 pl-6 rounded" href="/login">Log In</Link>
+          <div className="sing-log">
+            <Link className="nores-nav mr-3 border border-black rounded pt-2 pb-2 pr-6 pl-6" href="/singup">Sing Up</Link>
+            <Link className="nores-nav bg-zinc-800 border-zinc-800 border text-white pt-2 pb-2 pr-6 pl-6 rounded" href="/login">Log In</Link>
+          </div>
           <div className="container-2">
             <div className={`center ${mostrarOptions ? 'active' : ''}`} onClick={handleButtonChange}>
               <div></div>
@@ -38,7 +41,6 @@ export default function RootLayout({ children }) {
         </nav>
         <div className="options-2"></div>
         <div className="nonav w-100 h-[60px]"></div>
-        
         {children}
         <footer className="bottom-0 bg-gray-500 h-40 p-5 flex flex-col justify-center items-center gap-2">
           <h4 className="w-100 text-white font-bold text-xl">Cars Library</h4>

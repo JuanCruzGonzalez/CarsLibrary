@@ -1,7 +1,4 @@
 {
-  "/singup/page": "app/singup/page.js",
-  "/cars/page": "app/cars/page.js",
-  "/search/page": "app/search/page.js",
-  "/car/page": "app/car/page.js",
+  "/page": "app/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js"
 }

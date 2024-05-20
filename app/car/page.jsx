@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { fetchCarBysearch } from "../actions";
 import { getSlug } from "../actions";
-import { Loading } from "../loadingCircle";
+import { Loading } from "../components/loadingCircle";
 import { useSearchParams } from "next/router";
 
 // Función asíncrona para obtener el valor de la búsqueda

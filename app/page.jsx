@@ -1,9 +1,9 @@
 "use client";
-import { SingupForm } from "./singUp";
+import { SingupForm } from "./components/singUp";
 import "./globals.css";
-import { SearchInput } from "./searchInput";
-import { AppStatics } from "./appSatics";
-import { SearchedCars } from "./searchedCars";
+import { SearchInput } from "./components/searchInput";
+import { AppStatics } from "./components/appSatics";
+import { SearchedCars } from "./components/searchedCars";
 
 export default function Home() {
   return (
@@ -26,10 +26,12 @@ export default function Home() {
         <SearchedCars/>
       </section>
       <section className="Sign flex flex-col text-center items-center">
-        <h2 className="sign-title text-3xl text-center mt-40 mb-10 font-bold">
+        <h2 className="sign-title text-3xl text-center mt-10 font-bold">
           Sign up for New Arrivals
         </h2>
-        <SingupForm />        
+        <section className="sign-up-home">
+          <SingupForm />
+        </section>
       </section>
     </main>
   );

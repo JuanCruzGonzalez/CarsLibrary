@@ -128,6 +128,11 @@ main{
   background-size: cover;
 }
 
+.contact-form{
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 1px 0px 7px 0px gray;
+}
+
 @media screen and (max-width:576px) {
   .comment {
     display: none;
@@ -172,7 +177,7 @@ main{
   }
 
   .welcome{
-    height: calc(50vh - 80px);
+    height: calc(100vh - 60px);
   }
   nav{
     display: flex;
@@ -257,6 +262,17 @@ main{
   }
 }
 
+.sign-up-home .comment{
+  display: none;
+}
+
+.sign-up-home .singUp{
+  grid-template-columns: 1fr;
+}
+
+.sign-up-home .singUp .page-title{
+  display: none;
+}
 h1{
   text-shadow: 2px -3px 4px rgba(1, 1, 1, 1);
   width: 100%;
@@ -394,4 +410,57 @@ h1{
   opacity: 0.8;
   transform: scale(1.005);
   transform-origin: center;
+}
+
+
+.loader-div{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3em;
+}
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 3px dotted #000;
+  border-style: solid solid dotted dotted;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 2s linear infinite;
+}
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px dotted #ff3d00;
+  border-style: solid solid dotted;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  animation: rotationBack 1s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
 }

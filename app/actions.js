@@ -48,11 +48,7 @@ export async function fetchCarBysearch(car){
         }
 
         const data = await response.json();
-        console.log(data)
-        console.log(car)
-        // Buscar el auto cuyo 'id' coincida con el parámetro 'car'
         const foundCar = data.find(item => item.id === parseInt(car));
-        console.log(foundCar)
         return foundCar;
     } catch(error){
         console.log(error);

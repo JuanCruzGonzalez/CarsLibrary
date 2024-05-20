@@ -2,11 +2,12 @@
 
 import { useEffect, useState, Suspense } from "react";
 import { fetchCarsFromDataBase } from "../actions";
-import { CarCard } from "../carCard";
-import { GetSlug } from "../GetSlug";
-import { PageTitle } from "../pageTitle";
-import { SearchInput } from "../searchInput";
-import { Loading } from "../loadingCircle";
+import { CarCard } from "../components/carCard";
+import { GetSlug } from "../components/GetSlug";
+import { PageTitle } from "../components/pageTitle";
+import { SearchInput } from "../components/searchInput";
+import { Loading } from "../components/loadingCircle";
+import FilteredList from "../components/filterList";
 
 async function fetchSearchValue() {
   const searchParams = new URLSearchParams(window.location.search);
@@ -14,23 +15,30 @@ async function fetchSearchValue() {
   return search;
 }
 
-export default function Car(){
-    const [cars, setCars] = useState([])
-    const [searchResults, setSearchResults] = useState([])
-    const [search, setSearch] = useState(null);
-    const [loading, setLoading] = useState(true);
-    console.log(search)  // Obtén el valor directamente aquí
-    useEffect(() => {
-      // Llama a la función asíncrona para obtener el valor de búsqueda
-      fetchSearchValue().then(searchValue => {
-          console.log(searchValue)
-          setSearch(searchValue);
-          setLoading(false); // Marca la carga como completa
-      }).catch(error => {
-          console.error(error);
-          setLoading(false); // Marca la carga como completa incluso si hay un error
-      });
+function useSearch(){
+  const [search, setSearch] = useState(null);
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    // Llama a la función asíncrona para obtener el valor de búsqueda
+    fetchSearchValue().then(searchValue => {
+      console.log(searchValue)
+      setSearch(searchValue);
+      setLoading(false); // Marca la carga como completa
+    }).catch(error => {
+      console.error(error);
+      setLoading(false); // Marca la carga como completa incluso si hay un error
+    });
   }, []);
+  
+  return {search, loading}
+}
+
+export default function Car(){
+  const [cars, setCars] = useState([])
+    const [searchResults, setSearchResults] = useState([])
+    const {search, loading} = useSearch()
+    console.log(search)  // Obtén el valor directamente aquí
     useEffect(() => {
         const fetchCar = async () => {
             try {
@@ -54,8 +62,8 @@ export default function Car(){
           const cleanedSearch = search.replace(/\s/g, '').toLowerCase();
 
           // Elimina los espacios de los nombres en los datos y luego realiza la búsqueda
-          const exactMatch = cars.filter(item => item.brand.replace(/\s/g, '').toLowerCase() === cleanedSearch);
-          const partialMatch = cars.filter(item => item.brand.replace(/\s/g, '').toLowerCase().includes(cleanedSearch));
+          const exactMatch = cars.filter(item => item.name.replace(/\s/g, '').toLowerCase() === cleanedSearch);
+          const partialMatch = cars.filter(item => item.name.replace(/\s/g, '').toLowerCase().includes(cleanedSearch));
           if (exactMatch.length > 0){
             return [...exactMatch];
           }else{
@@ -68,6 +76,27 @@ export default function Car(){
         setSearchResults(searchResults);
       }, [cars, search]);
 
+      const handleOptionChange = (selectedOption) => {
+        let sortedArray;
+        switch(selectedOption) {
+          case "A-Z":
+            console.log("asd")
+            sortedArray = searchResults.slice().sort((a, b) => a.brand.localeCompare(b.brand));
+            break;
+          case "Z-A":
+            sortedArray = searchResults.slice().sort((a, b) => b.brand.localeCompare(a.brand));
+            break;
+          case "Higest Price":
+            sortedArray = searchResults.slice().sort((a, b) => b.price - a.price);
+            break;
+          case "Lowest Price":
+            sortedArray = searchResults.slice().sort((a, b) => a.price - b.price);
+            break;
+          default:
+            sortedArray = searchResults;
+        }
+        setSearchResults(sortedArray);
+      };
     return (
         <>
         <main className="p-5">
@@ -75,7 +104,10 @@ export default function Car(){
             <Suspense>
               <GetSlug title="Car" searchSlug='car'/>
             </Suspense>
-            <SearchInput/>
+            <div className="flex w-full justify-between items-center">
+              <SearchInput/>
+              <FilteredList onOptionChange={handleOptionChange}/>
+            </div>
             {/* Renderiza los datos si están disponibles */}
         {loading ? (
             <>
