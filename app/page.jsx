@@ -26,7 +26,7 @@ export default function Home() {
         <SearchedCars/>
       </section>
       <section className="Sign flex flex-col text-center items-center">
-        <h2 className="sign-title text-3xl text-center mt-10 font-bold">
+        <h2 className="sign-title text-3xl text-center mt-10 mb-10font-bold">
           Sign up for New Arrivals
         </h2>
         <section className="sign-up-home">

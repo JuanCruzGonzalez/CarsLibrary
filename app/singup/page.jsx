@@ -6,7 +6,9 @@ export default function Singup(){
     return(
         <>
             <main>
-                <SingupForm />
+                <div className="sign-container">
+                    <SingupForm/>
+                </div>
             </main>
         </>
     )

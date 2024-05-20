@@ -1106,6 +1106,9 @@ main{
     gap: 0;
   }
 }
+.sign-container .singUp{
+  min-height: 94vh;
+}
 
 .sign-up-home .comment{
   display: none;

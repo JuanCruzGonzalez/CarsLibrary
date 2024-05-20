@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export function SingupForm(){
     return (
-        <div className="singUp w-full justify-center grid grid-cols-7.1 min-h-[94vh]">
+        <div className="singUp w-full justify-center grid grid-cols-7.1">
             <div className="comment w-full flex items-center justify-center">
             </div>
             <div className="singipForm w-full flex justify-center items-center">
