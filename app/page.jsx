@@ -83,7 +83,7 @@ export default function Home() {
         </div>
       </sections>
       <sections className="Sign flex flex-col text-center items-center">
-        <h2 className="sign-title text-3xl text-center mt-40  font-bold">Sign in for New Arrivals</h2>
+        <h2 className="sign-title text-3xl text-center mt-40 font-bold">Sign in for New Arrivals</h2>
         <div class="container">
           <form action="" class="form">
               <input required="" class="input" type="text" name="name" id="name" placeholder="Name"/>
