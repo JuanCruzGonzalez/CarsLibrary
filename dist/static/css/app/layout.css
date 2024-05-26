@@ -521,6 +521,9 @@ video {
 .mb-6 {
   margin-bottom: 1.5rem;
 }
+.mb-8 {
+  margin-bottom: 2rem;
+}
 .ml-1 {
   margin-left: 0.25rem;
 }
@@ -548,6 +551,9 @@ video {
 .mt-5 {
   margin-top: 1.25rem;
 }
+.mt-6 {
+  margin-top: 1.5rem;
+}
 .flex {
   display: flex;
 }
@@ -572,9 +578,6 @@ video {
 .h-full {
   height: 100%;
 }
-.h-lvh {
-  height: 100lvh;
-}
 .h-px {
   height: 1px;
 }
@@ -589,6 +592,9 @@ video {
 }
 .w-60 {
   width: 15rem;
+}
+.w-\[22\%\] {
+  width: 22%;
 }
 .w-\[400px\] {
   width: 400px;
@@ -613,6 +619,9 @@ video {
 }
 .resize-none {
   resize: none;
+}
+.auto-rows-fr {
+  grid-auto-rows: minmax(0, 1fr);
 }
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -880,14 +889,15 @@ body {
   color: #000000;
 }
 
+.users div{
+}
+
 .users-count span:first-child, .cars-count span:first-child, .brands-count span:first-child{
   color: var(--main-red);
 }
 
 .welcome{
   width: 100%;
-  background-image: url(/_next/static/media/pexels-pixabay-248747.a6f0bbc3.jpg);
-  height: calc(100vh - 60px);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -1022,7 +1032,7 @@ main{
   }
 
   .welcome{
-    height: calc(100vh - 60px);
+    height: calc(65vh - 60px);
   }
   nav{
     display: flex;
@@ -1069,7 +1079,27 @@ main{
   }
 
   .users{
-    display: none;
+    margin-top: 0;
+    flex-direction: column;
+    padding: 2em;
+    text-align: center;
+  }
+
+  .users div{
+    margin-bottom: 5em;
+    width: 100%;
+  }
+
+  .users hr{
+    background-color: lightgray;
+  }
+
+  .users div hr{
+    margin: 0.55em 0;
+  }
+
+  .users div span{
+    width: 100%;
   }
   .search-form.flex input{
     width: 200px;
@@ -1106,9 +1136,6 @@ main{
     gap: 0;
   }
 }
-.sign-container .singUp{
-  min-height: 94vh;
-}
 
 .sign-up-home .comment{
   display: none;
@@ -1122,13 +1149,14 @@ main{
   display: none;
 }
 h1{
-  text-shadow: 2px -3px 4px rgba(1, 1, 1, 1);
+  background: linear-gradient(to right, rgb(143, 16, 16), rgb(219, 94, 94));
+  -webkit-background-clip: text;
+  color: transparent;
   width: 100%;
-  height: calc(50vh - 60px);
+  height: calc(30vh - 60px);
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #0000000d;
 }
 
 .img-searched-brands{

@@ -17,7 +17,7 @@ export function SearchedCars() {
 
     return (
         <>
-            <div className="cars grid gap-5">
+            <div className="cars grid gap-5 auto-rows-fr">
                 {cars.map((car, index) => (
                     <CarCard key={`${car.id}-${index}`} car={car} />
                 ))}

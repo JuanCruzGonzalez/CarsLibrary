@@ -4,6 +4,7 @@ import { fetchCarBysearch } from "../actions";
 import { getSlug } from "../actions";
 import { Loading } from "../components/loadingCircle";
 import { useSearchParams } from "next/router";
+import { CACHE_ONE_YEAR } from "next/dist/lib/constants";
 
 // Función asíncrona para obtener el valor de la búsqueda
 async function fetchSearchValue() {
@@ -15,8 +16,15 @@ async function fetchSearchValue() {
 export default function Car() {
     const [car, setCar] = useState(null);
     const [search, setSearch] = useState(null);
-    const [loading, setLoading] = useState(true); // Estado para el indicador de carga
+    const [loading, setLoading] = useState(true); 
 
+    const renderStars = (numStars) => {
+        const stars = [];
+        for (let i = 0; i < numStars; i++) {
+            stars.push(<span key={i}>&#9733;</span>);
+        }
+        return stars;
+    };
     useEffect(() => {
         // Llama a la función asíncrona para obtener el valor de búsqueda
         fetchSearchValue().then(searchValue => {
@@ -59,13 +67,14 @@ export default function Car() {
                                 <div className="car flex rounded">
                                     <div key={`${car.id}`} className="flex gap-2 full">
                                         <div className="info flex flex-col text-6xl p-4">
-                                            <span className="border-b border-gray-400 w-full p-4">
-                                                {car.brand.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') + " " + car.name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+                                            <span className="border-b border-gray-400 w-full p-4 text-5xl">
+                                                {car.name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
                                             </span>
                                             <div className="p-4 flex flex-col">
-                                                <span className="text-gray-600 text-[14px] mb-6 mt-4">Estrellas - N° de reviews</span>
-                                                <span className="text-gray-800 text-2xl mb-2">Year: {car.year}</span>
-                                                <span className="text-gray-800 text-2xl mb-2">Price: {car.price}</span>
+                                                <span className="text-gray-600 text-[14px] mb-6 mt-4">Estrellas {renderStars(car.stars)}</span>
+                                                <span className="text-gray-800 text-xl mb-2">Year: {car.year}</span>
+                                                <span className="text-gray-800 text-xl mb-2">Price: ${car.price} USD</span>
+                                                <span className="text-gray-800 text-xl mb-2">Km: {car.kilometers}</span>
                                             </div>
                                         </div>
                                     </div>
