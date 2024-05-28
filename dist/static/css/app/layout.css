@@ -581,6 +581,9 @@ video {
 .h-px {
   height: 1px;
 }
+.min-h-\[77vh\] {
+  min-height: 77vh;
+}
 .min-h-\[94vh\] {
   min-height: 94vh;
 }
@@ -601,9 +604,6 @@ video {
 }
 .w-\[auto\] {
   width: auto;
-}
-.w-fit {
-  width: fit-content;
 }
 .w-full {
   width: 100%;
@@ -978,14 +978,20 @@ main{
     border-radius: 9px;
 }
 
+.contact{
+  background-image: url(/_next/static/media/pexels-sarmad-mughal-94606-305070.bf05aaf4.jpg);
+  background-size: cover;
+}
+
 .comment{
   background-image: url(/_next/static/media/pexels-sarmad-mughal-94606-305070.bf05aaf4.jpg);
   background-size: cover;
 }
 
 .contact-form{
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 10px;
   box-shadow: 1px 0px 7px 0px gray;
+  background-color: white;
 }
 
 @media screen and (max-width:576px) {

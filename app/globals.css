@@ -124,14 +124,20 @@ main{
     border-radius: 9px;
 }
 
+.contact{
+  background-image: url('../public/pexels-sarmad-mughal-94606-305070.jpg');
+  background-size: cover;
+}
+
 .comment{
   background-image: url('../public/pexels-sarmad-mughal-94606-305070.jpg');
   background-size: cover;
 }
 
 .contact-form{
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 10px;
   box-shadow: 1px 0px 7px 0px gray;
+  background-color: white;
 }
 
 @media screen and (max-width:576px) {

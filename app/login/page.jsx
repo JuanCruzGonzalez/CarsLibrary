@@ -14,7 +14,7 @@ export default function LogIn(){
     return(
         <>
             <main>
-                <section className="log-in justify-center grid grid-cols-1.7 min-h-[94vh]">
+                <section className="log-in justify-center grid grid-cols-1.7 min-h-[77vh]">
                     <div className={`login-div ${animated ? 'animation' : ''} w-full flex justify-center items-center flex-col`}>
                         <PageTitle>Log in</PageTitle>
                         <form action="" className="form rounded-xl p-5 w-1/2 min-w-[350px]">

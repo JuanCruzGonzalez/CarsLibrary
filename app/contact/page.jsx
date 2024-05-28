@@ -2,8 +2,8 @@ import { PageTitle } from "../components/pageTitle";
 
 export default function Contact(){
     return(
-        <main className="contact text-center flex justify-center min-h-[94vh]">
-            <section className="contact-form w-fit rounded p-6 h-fit mb-5">
+        <main className="contact text-center flex justify-center items-center min-h-[94vh]">
+            <section className="contact-form p-6 rounded h-fit">
                 <PageTitle>Contact us</PageTitle>
                 <div className="w-full flex justify-center">
                     <form action="" className="form rounded-xl p-5">
