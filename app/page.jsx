@@ -7,7 +7,7 @@ import { SearchedCars } from "./components/searchedCars";
 
 export default function Home() {
   return (
-    <main className="bg-white text-black">
+    <main className="bg-white text-black relative">
       <section className="welcome flex flex-col items-center justify-center font-black">
         <h1 className="text-5xl w-100 text-center mb-8 mt-6">
           CarsLibrary

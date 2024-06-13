@@ -1,12 +1,4 @@
 export function CarCard({ car }) {
-    // Función para generar estrellas   
-    const renderStars = (numStars) => {
-        const stars = [];
-        for (let i = 0; i < numStars; i++) {
-            stars.push(<span key={i}>&#9733;</span>);
-        }
-        return stars;
-    };
 
     return (
         <div className="flex">
@@ -14,11 +6,15 @@ export function CarCard({ car }) {
                 <div className="car-img h-full w-[auto] rounded-t">
                     <img className="object-cover h-full max-w-full" src={car.img_url} alt="carImg"/>
                 </div>
-                <div className="flex flex-col p-4 mr-auto">
+                <div className="flex flex-col p-4 w-full">
                     {car.name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') + " " + car.year}
-                    <span className="text-gray-600 text-[14px]">
-                        Estrellas {renderStars(car.stars)}
-                        {car.price}
+                    <span className="flex text-gray-600 text-[14px]">
+                        <span className="w-full text-md">                            
+                            Kilometers: {car.kilometers}
+                        </span>
+                        <span className="car-price flex justify-end w-full text-md">
+                            ${car.price}
+                        </span>
                     </span>
                 </div>
             </a>

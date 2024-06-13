@@ -11,7 +11,7 @@ export default function FilteredList({ onOptionChange }) {
   };
 
   return (
-    <div>
+    <div className="absolute right-[10%] top-[16%] md:relative">
       <select name="filterCars" id="FilterCars" onChange={handleSelectChange} className='border-2 border-black rounded'>
         <option value="Last release">Last relaest</option>
         <option value="A-Z">A-Z</option>

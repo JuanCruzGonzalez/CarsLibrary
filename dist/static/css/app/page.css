@@ -500,8 +500,20 @@ video {
 .fixed {
   position: fixed;
 }
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
 .bottom-0 {
   bottom: 0px;
+}
+.right-\[10\%\] {
+  right: 10%;
+}
+.top-\[16\%\] {
+  top: 16%;
 }
 .mb-0 {
   margin-bottom: 0px;
@@ -536,9 +548,6 @@ video {
 .mr-3 {
   margin-right: 0.75rem;
 }
-.mr-auto {
-  margin-right: auto;
-}
 .mt-10 {
   margin-top: 2.5rem;
 }
@@ -569,8 +578,11 @@ video {
 .h-\[60px\] {
   height: 60px;
 }
-.h-\[80vh\] {
-  height: 80vh;
+.h-\[80px\] {
+  height: 80px;
+}
+.h-\[auto\] {
+  height: auto;
 }
 .h-fit {
   height: fit-content;
@@ -596,13 +608,22 @@ video {
 .w-60 {
   width: 15rem;
 }
+.w-\[100\%\] {
+  width: 100%;
+}
 .w-\[22\%\] {
   width: 22%;
 }
 .w-\[400px\] {
   width: 400px;
 }
+.w-\[60\%\] {
+  width: 60%;
+}
 .w-\[auto\] {
+  width: auto;
+}
+.w-auto {
   width: auto;
 }
 .w-full {
@@ -644,6 +665,9 @@ video {
 .items-center {
   align-items: center;
 }
+.justify-end {
+  justify-content: flex-end;
+}
 .justify-center {
   justify-content: center;
 }
@@ -671,6 +695,9 @@ video {
 .gap-6 {
   gap: 1.5rem;
 }
+.gap-x-1 {
+  column-gap: 0.25rem;
+}
 .rounded {
   border-radius: 0.25rem;
 }
@@ -683,10 +710,6 @@ video {
 .rounded-l-full {
   border-top-left-radius: 9999px;
   border-bottom-left-radius: 9999px;
-}
-.rounded-r {
-  border-top-right-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
 }
 .rounded-r-full {
   border-top-right-radius: 9999px;
@@ -992,6 +1015,39 @@ main{
   border-radius: 10px;
   box-shadow: 1px 0px 7px 0px gray;
   background-color: white;
+}
+
+.car-images-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem 0.25rem;
+}
+
+.car-images-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.car-images-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+.car-images-container::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+
+.carrusel-car-img{
+  border: 2px solid transparent;
+  border-radius: 10px;
+}
+
+.carrusel-car-img:hover{
+  border: 2px solid #000;
+  transform: scale(1.05);
+  transition: 0.2s;
+  cursor: pointer;
 }
 
 @media screen and (max-width:576px) {
@@ -1350,6 +1406,12 @@ h1{
 
   .sm\:text-\[18px\] {
     font-size: 18px;
+  }
+}
+@media (min-width: 768px) {
+
+  .md\:relative {
+    position: relative;
   }
 }
 

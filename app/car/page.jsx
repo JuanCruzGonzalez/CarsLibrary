@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
-import { fetchCarBysearch } from "../actions";
+import { fetchCarBysearch, fetchCarImgsFromDataBase } from "../actions";
 import { getSlug } from "../actions";
 import { Loading } from "../components/loadingCircle";
 import { useSearchParams } from "next/router";
@@ -50,6 +50,19 @@ export default function Car() {
             fetchCar();
         }
     }, [search]); // Se ejecuta cuando cambia el valor de búsqueda
+    const [images, setImages] = useState([]);
+
+    useEffect(() => {
+        const fetchImg = async () => {
+            try {
+                const fetchedImages = await fetchCarImgsFromDataBase();
+                setImages(fetchedImages);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchImg();
+    }, []);
 
     return (
         <main className="p-5">
@@ -64,7 +77,7 @@ export default function Car() {
                     <div className="flex gap-6">
                         <div className="w-full">
                             <div className="">
-                                <div className="car flex rounded">
+                                <div className="car flex rounded flex justify-between">
                                     <div key={`${car.id}`} className="flex gap-2 full">
                                         <div className="info flex flex-col text-6xl p-4">
                                             <span className="border-b border-gray-400 w-full p-4 text-5xl">
@@ -78,13 +91,27 @@ export default function Car() {
                                             </div>
                                         </div>
                                     </div>
-                                    <img className="h-[80vh] w-[auto] ml-auto rounded-r" src={car.img_url} alt="" />
+                                    <div className="flex flex-col car-img gap-1 w-[60%]">
+                                        <img className="h-[auto] w-[100%] ml-auto rounded-xl" src={car.img_url} alt="" />
+                                        <div className="car-images-container flex gap-x-1">
+                                            {images.length === 0 ? (
+                                                <Loading/>
+                                            ) : (
+                                                images.map((image, index) => (
+                                                    image.car_id == car.id ? (
+                                                        <img key={index} className="carrusel-car-img object-cover h-[80px] w-auto" src={image.img_url} alt="carImg"/>
+                                                    ) : null
+                                                ))
+                                            )}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 )
             )}
+            
         </main>
     );
 }

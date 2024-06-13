@@ -26,6 +26,30 @@ export async function fetchCarsFromDataBase(){
 
 }
 
+export async function fetchCarImgsFromDataBase(){
+    try{
+        const url = `${SUPABASE_URL}/rest/v1/CarImages`;
+        const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_KEY,
+        },
+        });
+        if (!response.ok){
+            throw new Error("Can not get the car images");
+        }
+        
+        const data = await response.json();
+        return data;
+    } catch(error){
+        console.log(error);
+        return [];
+    }
+
+}
+
+
 export function getSlug(option){
     const searchParams = useSearchParams();
     const search = searchParams.get(option);
